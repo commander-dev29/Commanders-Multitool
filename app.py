@@ -1,7 +1,6 @@
 import os
 import importlib
 import tkinter as tk
-import numpy as np
 
 class MultiTool:
     def __init__(self):
@@ -85,8 +84,6 @@ class MultiTool:
             
     def run(self):
         self.root.mainloop()
-
-    
 
 if __name__ == "__main__": # Runs the application
     app = MultiTool()
