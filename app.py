@@ -2,6 +2,9 @@ import os
 import importlib
 import tkinter as tk
 
+# Update requirements:
+# python -m pipreqs.pipreqs . --force
+
 class MultiTool:
     def __init__(self):
         self.root = tk.Tk()
