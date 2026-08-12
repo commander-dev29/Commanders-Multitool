@@ -1,6 +1,7 @@
 import os
 import importlib
 import tkinter as tk
+from tkinter import PhotoImage
 
 # Update requirements:
 # python -m pipreqs.pipreqs . --force
@@ -9,6 +10,8 @@ class MultiTool:
     def __init__(self):
         self.root = tk.Tk()
         self.root.title("MultiTool")
+        app_icon = PhotoImage(file="icon.png")
+        self.root.iconphoto(True, app_icon)
         self.root.geometry("600x300")
         self.root.resizable(False, False)
         self.current_tool_frame = None  # Tracks and clears active tool UIs

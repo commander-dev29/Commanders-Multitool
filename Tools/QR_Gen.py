@@ -22,14 +22,26 @@ class Tool:
             width=5,
             font=("Arial", 12)
         )
-        self.scale.pack(pady=5)
+        
+        button_frame = tk.Frame(self.frame)
+        button_frame.pack(pady=5)
+
+        self.rickroll_button = tk.Button(
+            button_frame,
+            text="Rickroll",
+            command=lambda: (
+                self.input_entry.delete(0, tk.END),
+                self.input_entry.insert(0, "https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+            )
+        )
+        self.rickroll_button.pack(side="left", padx=5)
 
         self.generate_button = tk.Button(
-            self.frame,
+            button_frame,
             text="Generate QR Code",
             command=self.generate_qr
         )
-        self.generate_button.pack(pady=5)
+        self.generate_button.pack(side="left", padx=5)
 
     def generate_qr(self):
         data = self.input_entry.get()
