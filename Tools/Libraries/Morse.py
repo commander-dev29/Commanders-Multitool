@@ -4,14 +4,15 @@ MORSE_DICT = {
     'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-', 'Y': '-.--', 'Z': '--..', 
     '0': '-----', '1': '.----', '2': '..---', '3': '...--', '4': '....-', 
     '5': '.....','6': '-....', '7': '--...', '8': '---..', '9': '----.',
-    '.': '.-.-.-', ',': '--..--', '?': '..--..', "'": '.----.', '!': '-.-.--', '/': '-..-.', '(': '-.--.', ')': '-.--.-',
+    '.': '.-.-.-', ',': '--..--', '?': '..--..', "'": '.----.', '!': '-.-.--', '/': '-..-.', '(': '-.--.', ')': '-.--.-', ' ': '/'
 }
 
-def text2morse(text):
-    morse = ''
-    for c in text:
-        m = MORSE_DICT.get(c)
-        if m == None: return ''
-        morse += m
-    return morse
+def text2morse(text): # Use 'try' to run this safely
+    morse = []
+    for c in text.upper():
+        if c not in MORSE_DICT:
+            raise ValueError(f"Unsupported character: {c}")
+        morse.append(MORSE_DICT[c])
+    return ' '.join(morse)
+
 

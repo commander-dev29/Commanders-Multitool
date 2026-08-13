@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
+import Tools.Libraries.Morse as morse
 
 class Tool:
     def __init__(self, parent):
@@ -9,10 +10,9 @@ class Tool:
         self.grid_frame = tk.Frame(self.frame)
         self.grid_frame.pack(fill="both", expand=True, padx=10, pady=10)
 
-        # CHANGED: Added vertical spacers and forced a single master column layout
         self.grid_frame.columnconfigure(0, weight=1)
-        self.grid_frame.rowconfigure(0, weight=1) # Top invisible vertical spring
-        self.grid_frame.rowconfigure(3, weight=1) # Bottom invisible vertical spring
+        self.grid_frame.rowconfigure(0, weight=1) 
+        self.grid_frame.rowconfigure(3, weight=1) 
 
         # Title Label (Centered globally on row 1 of the master frame)
         tk.Label(
@@ -29,15 +29,26 @@ class Tool:
         mode_label = tk.Label(options_container, text="Select mode:")
         mode_label.grid(row=0, column=0, sticky="e", padx=10, pady=5)
         
-        dropdown = ttk.Combobox(
+        self.dropdown = ttk.Combobox(
             options_container,
             values=["Encode", "Decode"],
             state="readonly"
         )
-        dropdown.set("Encode")
-        dropdown.grid(row=0, column=1, sticky="w", padx=10, pady=5)
+        self.dropdown.set("Encode")
+        self.dropdown.grid(row=0, column=1, sticky="w", padx=10, pady=5)
 
+        translate_button = tk.Button(
+            self.grid_frame,
+            text="Translate",
+            command=self.translate
+        )
+        translate_button.grid(row=3, column=0, pady=10)
 
+    def translate(self):
+        mode = self.dropdown.get()
+        # Use 'if' and 'try' to select the mode and run safely
+
+        
         
 # This bridge function matches the run_tool call expected by app.py
 def run_tool(parent_frame):
