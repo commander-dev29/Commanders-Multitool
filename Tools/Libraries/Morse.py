@@ -14,5 +14,3 @@ def text2morse(text): # Use 'try' to run this safely
             raise ValueError(f"Unsupported character: {c}")
         morse.append(MORSE_DICT[c])
     return ' '.join(morse)
-
-

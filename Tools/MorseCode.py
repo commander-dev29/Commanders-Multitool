@@ -12,7 +12,7 @@ class Tool:
 
         self.grid_frame.columnconfigure(0, weight=1)
         self.grid_frame.rowconfigure(0, weight=1) 
-        self.grid_frame.rowconfigure(3, weight=1) 
+        # self.grid_frame.rowconfigure(3, weight=1) 
 
         # Title Label (Centered globally on row 1 of the master frame)
         tk.Label(

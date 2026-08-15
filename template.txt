@@ -1,0 +1,11 @@
+import tkinter as tk
+from tkinter import ttk
+
+class Tool:
+    def __init__(self, parent):
+        self.frame = tk.Frame(parent)
+        self.frame.pack(fill="both", expand=True)
+        
+# This bridge function matches the run_tool call expected by app.py
+def run_tool(parent_frame):
+    Tool(parent_frame)
